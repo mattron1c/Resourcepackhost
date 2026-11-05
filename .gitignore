@@ -1,0 +1,25 @@
+# --- Secrets: NEVER commit the license signing key ---
+*private*.key
+wispguard-private.key
+*.pem
+*.p12
+*.keystore
+
+# Issued license keys (per-server; keep out of the public repo)
+license.key
+licenses/
+
+# Build output / scratch
+build/
+out/
+dist/
+*.class
+.gradle/
+target/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
