@@ -1,0 +1,61 @@
+# INSOMN1A Bridge — runs the INSOMN1A Client social backend (friends, messages, capes, badges) inside this server.
+
+# ── LICENSE ──────────────────────────────────────────────────────────────
+# INSOMN1A-Bridge will only start if this matches your activation code.
+# Paste the code you were given here, e.g.  license: XXX-XXX-XXXXX
+license: "XHM-AOX-POQM3"
+
+# Plugins that are switched off while INSOMN1A-Bridge is running without a valid
+# license code above. Use the exact plugin names (the "name:" in each plugin.yml).
+# They come straight back once the correct code is set and the server restarts.
+protected-plugins:
+  - "PlayerKits3"
+  - "WispUtils"
+  - "WispXAnticheat"
+  - "ThePort"
+  - "WardenBoss"
+  - "ItemRenamer"
+
+backend:
+  # Players on THIS server talk to the backend through their normal Minecraft connection (no extra port needed).
+  enabled: true
+  # Optional TCP port so INSOMN1A users on OTHER servers can stay connected too. 0 = off (relay only).
+  # If you use it, open/forward this TCP port on your host.
+  port: 0
+  # Address clients should use for the TCP port when they're on other servers, e.g. play.example.com:25599.
+  # Leave empty if port is 0.
+  public-address: ""
+  # Only for testing with offline-mode servers. Keep false.
+  allow-offline: false
+  max-connections: 500
+
+broadcast:
+  enabled: true
+  interval-minutes: 5
+  # Don't nag players who already run INSOMN1A.
+  skip-mod-users: true
+  # MiniMessage format. Clicking runs your existing /discord command.
+  message: "<red>☾</red> <gray>Get the</gray> <red><bold>INSOMN1A</bold></red> <gray>client mod: friends, DMs, capes and 75+ modules.</gray> <red><underlined><click:run_command:'/discord'><hover:show_text:'<gray>Click to get the download link</gray>'>Click here</hover></click></underlined></red>"
+
+features:
+  # Toast shown to INSOMN1A users when they join.
+  welcome-toast: "Welcome! You're running INSOMN1A on this server."
+  # Put a red ☾ before INSOMN1A users' names in the tab list for EVERYONE (also players without the mod).
+  # Leave false if another plugin (TAB, etc.) manages tab names.
+  tab-badge: false
+  # Tell other INSOMN1A users on the server when someone with the mod joins.
+  announce-mod-joins: false
+  # INSOMN1A modules that are switched off while players are on this server (fair play), by module id.
+  # Examples: freelook, world_tweaks, hitboxes, damage_numbers, auto_text
+  blocked-modules: []
+  # Permissions given to players while they're online WITH the INSOMN1A client (removed when they leave).
+  # Put one of these on a kit (e.g. in PlayerKits2/PlayerKits3 or any kit plugin) to make an INSOMN1A-only kit.
+  # They're normal Bukkit permissions, so LuckPerms (/lp user <name> permission check insomnia.client) sees them.
+  client-permissions:
+    - "insomnia.client"
+  # Console commands run ONCE the first time each player joins with INSOMN1A. %player% = their name.
+  # Example: - "kit give %player% insomnia"
+  first-time-commands: []
+  # Waypoints pushed to INSOMN1A players (shown as beams + on-screen pointers). Format: "Name;world;x;y;z"
+  waypoints:
+    - "Spawn;world;0;80;0"
